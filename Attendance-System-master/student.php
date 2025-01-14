@@ -11,7 +11,8 @@
   <script src="js/highcharts-exporting.js"></script>
   <script src="js/jquery.knob.js"></script>
   <script src="js/student.js"></script>
-  <!-- Custom styles for this template -->
+
+
     <link href="navbar-fixed-top.css" rel="stylesheet">
  </head>
  <body>
@@ -30,7 +31,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>
-          
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -70,6 +71,6 @@
         <p>developed by  <a href="https://www.linkedin.com/in/emmanuel-slayo/">Emmanuel slayo </a><a href="https://www.alphatectz.org/">Privacy</a> &middot; <a href="https://www.alphatectz.org/">Terms</a></p>
       </footer>
 
-    
+
  </body>
 </html>

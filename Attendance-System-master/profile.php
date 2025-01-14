@@ -16,10 +16,12 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/profile.js"></script>
-  <!-- Custom styles for this template -->
+
+  <!-- Custom styles-->
     <link href="navbar-fixed-top.css" rel="stylesheet">
  </head>
  <body>
+
    <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -36,16 +38,16 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="teacher.php">Dashboard</a></li>
 			<li  class="active"><a href="profile.php">Profile</a></li>
-            
+
 			<li><a href="statistics.php">Statistics</a></li>
             <li><a href="#contact">Contact</a></li>
 			<li><a href="logout.php">Logout</a></li>
-          
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav></br></br></br></br>
-  
+
   <div class="container">
     <?php
       $name = $_SESSION['name'];
