@@ -102,14 +102,13 @@
         </tr>
       </tbody>
     </table>
-  </div>
+    </div>
      <!-- FOOTER -->
       <footer style="background:; height:120%;">
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; developed by  <a href="https://www.linkedin.com/in/emmanuel-slayo/">Emmanuel slayo</a><a href="https://www.alphatectz.org/">Privacy</a> &middot; <a href="https://www.alphatectz.org/">Terms</a></p>
       </footer>
-
-    </div><!-- /.container -->
+    </div>
 
  </body>
 </html>

@@ -16,10 +16,12 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/teacher.js"></script>
-  <!-- Custom styles for this template -->
+
+  <!-- Custom styles -->
     <link href="navbar-fixed-top.css" rel="stylesheet">
  </head>
  <body>
+
    <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -36,15 +38,17 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="teacher.php">Dashboard</a></li>
             <li><a href="profile.php">Profile</a></li>
-           
+
 			<li><a href="statistics.php">Statistics</a></li>
 			<li><a href="logout.php">Logout</a></li>
-          
+
           </ul>
+
         </div><!--/.nav-collapse -->
+
       </div>
     </nav></br></br></br></br>
- 
+
   <div class="container">
     <?php
       $name = $_SESSION['name'];
@@ -52,12 +56,13 @@
       $teacher_id = $_SESSION['teacher_id'];
       echo '<h2>Welcome , '.$name.'.</h2>';
       echo '<div class="wrapper">';
+
       // FOR EACH CLASS , GET IT'S INFO AND PREPARE A LINK
       $n = new Node;
-       
+
       if(!$classes) {
         echo '<h3 class="no-classes">You haven\'t taken any class yet!</h3>';
-      } else { 
+      } else {
         echo '<h3 class="no-classes">Click on a class to take attendance.</h3>';
         foreach($classes as $class_id) {
           $node = $n->retrieveObjecti($class_id,$teacher_id) or die("No such record");
@@ -66,7 +71,7 @@
           $year = $node->getYear();
           $numClasses = $node->getDays();
           $link = 'take.php?cN='.$class_id;
-          echo '<div class="class"> 
+          echo '<div class="class">
             <button class="btn btn-danger delete-class-warning" data-toggle="modal" data-target=".delete-warning">&times;</button>
             <a class="no-decoration" href="'.$link.'">
             <div><strong>Code</strong> : <span class="code">'.$code.'</span></div> 
@@ -79,9 +84,9 @@
       echo '<div class="class" data-toggle="modal" data-target=".bs-example-modal-lg" id="addClass">
           <span class="glyphicon glyphicon-plus"></span>
         </div>
-      </div>';   
+      </div>';
     ?>
-    
+
   </div>
   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="addClass" aria-hidden="true">
       <div class="modal-dialog modal-lg">

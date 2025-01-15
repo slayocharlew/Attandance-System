@@ -21,27 +21,27 @@
  <body>
   <div id="header" class="clearfix">
     <h1>National Institute of Transport</h1>
-    <h3>Edit Class</h3>	
+    <h3>Edit Class</h3>
   </div>
-  <nav class="navbar navbar-default" id="sub-menu">  
-    <div class="navbar-header">    
+  <nav class="navbar navbar-default" id="sub-menu">
+    <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">      
-        <span class="sr-only">Toggle navigation</span>      
-        <span class="icon-bar"></span>      
-        <span class="icon-bar"></span>      
-        <span class="icon-bar"></span>    
-      </button>  
-    </div>  
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">    
-      <ul class="nav navbar-nav navbar-left">      
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
         <li><a href="teacher.php">Home</a></li>
         <li><a href="profile.php">Profile</a></li>
         <li class="active"><a href="class.php">Classes</a></li>
         <li><a href="statistics.php">Statistics</a></li>
         <li><a href="logout.php">Logout</a></li>
-      </ul>  
-    </div>  
-  </nav> 
+      </ul>
+    </div>
+  </nav>
   <div class="container">
     <h2> You can edit details of your classes here. </h2>
     <?php
@@ -56,7 +56,7 @@
           $section = $node->getSection();
           $year = $node->getYear();
           $semester = $node->getSemester();
-          
+
           echo '<ul class="nav nav-tabs">
                   <li class="active"><a href="#"><strong>'.$code . ' ( '.$section.' ) , '.$year.'</strong></a></li>
                 </ul>';
