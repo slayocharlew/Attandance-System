@@ -16,6 +16,7 @@
     <link href="navbar-fixed-top.css" rel="stylesheet">
  </head>
  <body>
+
    <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -48,7 +49,7 @@
     <div class="form-group">
       <label>Section</label>
       <select name="section" class="form-control">
-      <option>1</option><option>2</option><option>3</option>	
+      <option>1</option><option>2</option><option>3</option>
     </select>
     </div>
     <div class="form-group">

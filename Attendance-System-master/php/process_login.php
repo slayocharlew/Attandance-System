@@ -1,8 +1,9 @@
 <?php session_start(); ?>
 <?php include 'defines.php'; ?>
 <?php
-/*********** VALIDATE ALL VARIABLES ************/
-foreach($_POST as $p) 
+
+/***    Validate all variable   *****/
+foreach($_POST as $p)
   if(empty($p) || !isset($p))
     respond("error","empty");
 
@@ -11,16 +12,17 @@ $email = strtolower(sqlReady($_POST['email']));
 
 if(verify(EMAIL,$email) === false) respond("error","email");
 
-/*********** SEARCH **********/
+/**   Search    *****/
 $con = connectTo();
 $exists = $con->query("select * from `attendance`.`teacher` where email = '$email'");
 if(!($exists && $con->affected_rows)) {
   $con->close();
   respond("error","not_found");
-} 
+}
 $exists = $exists->fetch_assoc();
 if(verifyPass($pass,$exists['password'])) {
-  // START SESSION
+
+  // Start Session
   $_SESSION['name'] = $exists['name'];
   $_SESSION['email'] = $exists['email'];
   $_SESSION['phone'] = $exists['phone'];
@@ -31,7 +33,7 @@ if(verifyPass($pass,$exists['password'])) {
     $cls = array();
     while($a = $classes->fetch_array()) {
       $cls[] = $a[0];
-    } 
+    }
     $_SESSION['classes'] = $cls;
   }
   $con->close();

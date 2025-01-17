@@ -5,10 +5,10 @@
   $phone = $_POST['phone'];
   $email = $_POST['email'];
   $teacher_id = $_SESSION['teacher_id'];
-  
+
   if($name == $_SESSION['name'] && $phone == $_SESSION['phone'] && $email == $_SESSION['email'])
     respond("error","none");
-      
+
   if(verify(EMAIL,$email) === false) respond("error","email");
   if(verify(PHONE,$phone) === false) respond("error","phone");
   if(verify(NAME,$name) === false) respond("error","name");
@@ -16,7 +16,7 @@
   $name = sqlReady($name);
   $phone = sqlReady($phone);
   $email = sqlReady($email);
-  
+
   $con = connectTo();
   $query = $con->query("select email from teacher where email = '".$email."'");
   if($query && $con->affected_rows && $email != $_SESSION['email']) respond("error","exists");
