@@ -4,7 +4,8 @@
   $code = $_POST['code'];
   $section = $_POST['section'];
   $year = $_POST['year'];
-  
+
+  //check and delete class
   $classNode = new Node;
   $node = $classNode->retrieveObject($code,$section,$year) or respond("error","not_found");
   if($node->getTeacherID() == $_SESSION['teacher_id']) {

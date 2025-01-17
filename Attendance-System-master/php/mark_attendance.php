@@ -8,16 +8,19 @@
 
   if(!in_array($class_id,$_SESSION['classes'])) respond("error","not_found");
 
-  // Create node
+  // Create new node
   $classNode = new Node;
-  // Retrieve object
+
+  // Retrieve an object
   $node = $classNode->retrieveObjecti($class_id,$teacher_id) or die("No such record");
-  // Set presence
+
+  // Set a presence day
   foreach($content as $c) {
     $node->setPresence($c['roll'],$c['newpresent'],$c['timestamp']);
   }
   $node->setDays($node->getDays()+1);
-  // Save object
+
+  // Save an object
   $node->saveNode();
   respond("error","none");
 ?>

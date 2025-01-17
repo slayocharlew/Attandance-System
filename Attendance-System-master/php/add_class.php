@@ -10,6 +10,7 @@
   $endRoll = strtoupper($_POST['end']);
   $classes = $_SESSION['classes'] == 0?array():$_SESSION['classes'];
 
+  //T new class
   if(verify(CODE,$code) === false) respond("error","code");
   if(verify(ROLL,$startRoll) === false) respond("error","roll");
   if(verify(ROLL,$endRoll) === false) respond("error","roll");

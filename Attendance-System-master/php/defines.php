@@ -13,27 +13,25 @@ DEFINE('NUMBER',6);
 
 function connectTo() {
 /*
- Does -> Connects to data base
- Returns -> Connection object
+ Connect to the database
 */
   $con = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_DB);
-  return $con;   
+  return $con;
 }
+
 function sqlReady($input) {
 /*
- Takes -> Any string
- Returns -> Escapes the string
+ String
 */
   $con = connectTo();
   $string = mysqli_real_escape_string($con,$input);
   $con->close();
-  return $string; 
+  return $string;
 }
 
 function hashPass($pass,$rounds = 9) {
 /*
- Takes -> Password
- Returns -> Hashes the password using blow-fish algorithm
+Password
 */
   $salt = "";
   $i = -1;
@@ -42,24 +40,24 @@ function hashPass($pass,$rounds = 9) {
     $salt .= $saltChars[array_rand($saltChars)];
   return crypt($pass, sprintf('$2y$%02d$', $rounds) . $salt);
 }
+
 function verifyPass($input,$pass) {
 /*
- Takes -> 2 Password strings
- Returns -> true if matches false if doesn't
+ Password string verify if it matches
 */
   return crypt($input,$pass) == $pass? true : false ;
 }
+
 function respond($as,$what) {
 /*
- Takes -> key and value
- Does -> Dies by printing json_encoded array having the key and value
+ respond key and value
 */
   die(json_encode(array($as=>$what)));
 }
+
 function updateSession($email) {
 /*
- Takes -> email
- Does -> Updates the SESSION variable as per the email
+ Update the session as oer email
 */
   $con = connectTo();
   $exists = $con->query("select * from `attendance`.`teacher` where email = '$email'");
@@ -74,7 +72,7 @@ function updateSession($email) {
     $cls = array();
     while($a = $classes->fetch_array()) {
       $cls[] = $a[0];
-    } 
+    }
     $_SESSION['classes'] = $cls;
   }
   $con->close();
@@ -82,9 +80,7 @@ function updateSession($email) {
 }
 function verify($type,$input) {
 /*
- Takes -> Type of regex checker and the input
- Does -> Computes the regex 
- Returns -> Returns true and false
+regex checker for manipulating text string
 */
   $reEmail = '/^([\S]+)@([\S]+)\.([\S]+)$/';
   $rePhone = '/^[0-9]{10}$/';
@@ -94,22 +90,22 @@ function verify($type,$input) {
   $reNum  = '/^[0-9]+$/';
   $m;
   switch($type) {
-    case EMAIL : 
+    case EMAIL :
       preg_match($reEmail,$input,$m);
     break;
-    case PHONE : 
+    case PHONE :
       preg_match($rePhone,$input,$m);
     break;
-    case CODE : 
+    case CODE :
       preg_match($reCode,$input,$m);
     break;
-    case ROLL : 
+    case ROLL :
       preg_match($reRoll,$input,$m);
     break;
-    case NAME : 
+    case NAME :
       preg_match($reName,$input,$m);
     break;
-    case NUMBER : 
+    case NUMBER :
       preg_match($reNum,$input,$m);
     break;
   }

@@ -12,5 +12,5 @@
     }
     die(json_encode(array("error"=>"NOT_IN_RECORDS")));
   }
-  die(json_encode(array("error"=>"NO_RECORD")));	
+  die(json_encode(array("error"=>"NO_RECORD")));
 ?>
